@@ -1,0 +1,103 @@
+Traceback (most recent call last):
+  File "/home/tom1/.local/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/usr/lib/python3.9/site-packages/nbclient/client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/usr/lib/python3.9/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/usr/lib/python3.9/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "/usr/lib/python3.9/site-packages/nbclient/client.py", line 553, in async_execute
+    await self.async_execute_cell(
+  File "/usr/lib/python3.9/site-packages/nbclient/client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/usr/lib/python3.9/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Set CSS properties for th elements in dataframe
+th_props = [
+  ('font-size', '11px'),
+  ('text-align', 'center'),
+  ('font-weight', 'bold'),
+  ('color', '#6d6d6d'),
+  ('background-color', '#f7f7f9')
+  ]
+
+
+# Set CSS properties for td elements in dataframe
+td_props = [
+  ('font-size', '11px')
+  ]
+
+# Set table styles
+styles = [
+  dict(selector="th", props=th_props),
+  dict(selector="td", props=td_props)
+  ]
+
+import pandas as px
+bio_g9_05 = px.read_excel("bio_g9_05.xlsx", dtype=object, sheet_name='bio_g9_05')
+(bio_g9_05.style
+    .applymap(color_negative_red, subset=['total_amt_usd_diff','total_amt_usd_pct_diff'])
+    .format({'total_amt_usd_pct_diff': "{:.2%}"})
+    .set_table_styles(styles))
+bio_g9_05.head()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-1-4f4ec506b991>[0m in [0;36m<module>[0;34m[0m
+[1;32m     21[0m [0;34m[0m[0m
+[1;32m     22[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpx[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 23[0;31m [0mbio_g9_05[0m [0;34m=[0m [0mpx[0m[0;34m.[0m[0mread_excel[0m[0;34m([0m[0;34m"bio_g9_05.xlsx"[0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0mobject[0m[0;34m,[0m [0msheet_name[0m[0;34m=[0m[0;34m'bio_g9_05'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     24[0m (bio_g9_05.style
+[1;32m     25[0m     [0;34m.[0m[0mapplymap[0m[0;34m([0m[0mcolor_negative_red[0m[0;34m,[0m [0msubset[0m[0;34m=[0m[0;34m[[0m[0;34m'total_amt_usd_diff'[0m[0;34m,[0m[0;34m'total_amt_usd_pct_diff'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/lib/python3.9/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
+[1;32m    309[0m                     [0mstacklevel[0m[0;34m=[0m[0mstacklevel[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    310[0m                 )
+[0;32m--> 311[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    312[0m [0;34m[0m[0m
+[1;32m    313[0m         [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/lib/python3.9/site-packages/pandas/io/excel/_base.py[0m in [0;36mread_excel[0;34m(io, sheet_name, header, names, index_col, usecols, squeeze, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, parse_dates, date_parser, thousands, comment, skipfooter, convert_float, mangle_dupe_cols, storage_options)[0m
+[1;32m    370[0m [0;34m[0m[0m
+[1;32m    371[0m     [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 372[0;31m         data = io.parse(
+[0m[1;32m    373[0m             [0msheet_name[0m[0;34m=[0m[0msheet_name[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    374[0m             [0mheader[0m[0;34m=[0m[0mheader[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/lib/python3.9/site-packages/pandas/io/excel/_base.py[0m in [0;36mparse[0;34m(self, sheet_name, header, names, index_col, usecols, squeeze, converters, true_values, false_values, skiprows, nrows, na_values, parse_dates, date_parser, thousands, comment, skipfooter, convert_float, mangle_dupe_cols, **kwds)[0m
+[1;32m   1270[0m             [0mDataFrame[0m [0;32mfrom[0m [0mthe[0m [0mpassed[0m [0;32min[0m [0mExcel[0m [0mfile[0m[0;34m.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1271[0m         """
+[0;32m-> 1272[0;31m         return self._reader.parse(
+[0m[1;32m   1273[0m             [0msheet_name[0m[0;34m=[0m[0msheet_name[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1274[0m             [0mheader[0m[0;34m=[0m[0mheader[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/lib/python3.9/site-packages/pandas/io/excel/_base.py[0m in [0;36mparse[0;34m(self, sheet_name, header, names, index_col, usecols, squeeze, dtype, true_values, false_values, skiprows, nrows, na_values, verbose, parse_dates, date_parser, thousands, comment, skipfooter, convert_float, mangle_dupe_cols, **kwds)[0m
+[1;32m    533[0m [0;34m[0m[0m
+[1;32m    534[0m             [0;32mif[0m [0misinstance[0m[0;34m([0m[0masheetname[0m[0;34m,[0m [0mstr[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 535[0;31m                 [0msheet[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mget_sheet_by_name[0m[0;34m([0m[0masheetname[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    536[0m             [0;32melse[0m[0;34m:[0m  [0;31m# assume an integer if not a string[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    537[0m                 [0msheet[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mget_sheet_by_index[0m[0;34m([0m[0masheetname[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/lib/python3.9/site-packages/pandas/io/excel/_openpyxl.py[0m in [0;36mget_sheet_by_name[0;34m(self, name)[0m
+[1;32m    540[0m [0;34m[0m[0m
+[1;32m    541[0m     [0;32mdef[0m [0mget_sheet_by_name[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mname[0m[0;34m:[0m [0mstr[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 542[0;31m         [0mself[0m[0;34m.[0m[0mraise_if_bad_sheet_by_name[0m[0;34m([0m[0mname[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    543[0m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mbook[0m[0;34m[[0m[0mname[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m    544[0m [0;34m[0m[0m
+
+[0;32m/usr/lib/python3.9/site-packages/pandas/io/excel/_base.py[0m in [0;36mraise_if_bad_sheet_by_name[0;34m(self, name)[0m
+[1;32m    472[0m     [0;32mdef[0m [0mraise_if_bad_sheet_by_name[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mname[0m[0;34m:[0m [0mstr[0m[0;34m)[0m [0;34m->[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    473[0m         [0;32mif[0m [0mname[0m [0;32mnot[0m [0;32min[0m [0mself[0m[0;34m.[0m[0msheet_names[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 474[0;31m             [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34mf"Worksheet named '{name}' not found"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    475[0m [0;34m[0m[0m
+[1;32m    476[0m     def parse(
+
+[0;31mValueError[0m: Worksheet named 'bio_g9_05' not found
+ValueError: Worksheet named 'bio_g9_05' not found
+
