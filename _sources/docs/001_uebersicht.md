@@ -16,6 +16,6 @@ kernelspec:
 ```{code-cell} ipython3
 :tags: ["remove-input"]
 import pandas as px
-bio_g9_05 = px.read_excel("bio_g9_05.xlsx", dtype=object, sheet_name='bio_g9_05')
+bio_g9_05 = px.read_excel("bio_g9_05.xlsx", sheet_name='bio_g9_05')
 bio_g9_05.head()
 ```

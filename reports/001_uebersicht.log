@@ -18,15 +18,15 @@ Traceback (most recent call last):
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
 import pandas as px
-bio_g9_05 = px.read_excel("bio_g9_05.xlsx", dtype=object, sheet_name='bio_g9_05')
+bio_g9_05 = px.read_excel("bio_g9_05.xlsx", sheet_name='bio_g9_05')
 bio_g9_05.head()
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mValueError[0m                                Traceback (most recent call last)
-[0;32m<ipython-input-1-6ca5cf3e3f23>[0m in [0;36m<module>[0;34m[0m
+[0;32m<ipython-input-1-3e3a1252a066>[0m in [0;36m<module>[0;34m[0m
 [1;32m      1[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpx[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 2[0;31m [0mbio_g9_05[0m [0;34m=[0m [0mpx[0m[0;34m.[0m[0mread_excel[0m[0;34m([0m[0;34m"bio_g9_05.xlsx"[0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0mobject[0m[0;34m,[0m [0msheet_name[0m[0;34m=[0m[0;34m'bio_g9_05'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mbio_g9_05[0m [0;34m=[0m [0mpx[0m[0;34m.[0m[0mread_excel[0m[0;34m([0m[0;34m"bio_g9_05.xlsx"[0m[0;34m,[0m [0msheet_name[0m[0;34m=[0m[0;34m'bio_g9_05'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m      3[0m [0mbio_g9_05[0m[0;34m.[0m[0mhead[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
 [0;32m/usr/lib/python3.9/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
