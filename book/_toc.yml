@@ -1,0 +1,17 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: docs/000_intro
+options:
+  numbered: 2
+chapters:
+  - file: docs/101_python_gpio
+  # sections:
+  #   - file: docs/101_hello_world
+  #   - file: docs/101_while_counter
+  - file: docs/102_buzzer
+  - file: docs/103_vibration
+  # sections:
+  #   - file: docs/102_making_a_buzzer_alarm
+  # - file: docs/103_vibration
