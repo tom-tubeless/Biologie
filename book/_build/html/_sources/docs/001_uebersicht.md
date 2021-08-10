@@ -14,5 +14,7 @@ kernelspec:
 # Übersicht über die Unterrichtsinhalte
 
 ```{code-cell} python3
-print("Hello World")
+import pandas as px
+bio_g9_05 = px.read_excel("bio_g9_05.xlsx")
+bio_g9_05.head()
 ```
