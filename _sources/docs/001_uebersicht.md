@@ -17,6 +17,5 @@ kernelspec:
 :tags: ["remove-input"]
 import pandas as px
 bio_g9_05 = px.read_excel("bio_g9_05.xlsx", dtype=object, sheet_name='bio_g9_05')
-bio_g9_05.style.set_table_styles()
 bio_g9_05.head()
 ```
