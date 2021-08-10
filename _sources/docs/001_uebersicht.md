@@ -13,7 +13,7 @@ kernelspec:
 
 # Übersicht über die Unterrichtsinhalte
 
-```{code-cell} python3
+```{code-cell} ipython3
 :tags: ["remove-input"]
 import pandas as px
 bio_g9_05 = px.read_excel("bio_g9_05.xlsx")
