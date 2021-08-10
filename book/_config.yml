@@ -1,10 +1,10 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Unterrichtsplanung, -inhalte und -materialien für das Fach Biologie am Wim-Wenders-Gymnasium Düsseldorf.
+title: Biologie am WWG.
 author: Lutz Tomala
-logo: rpi_logo.png
-copyright: "2021"
+logo: wwg_atom_klecks_black_green.png
+copyright: "MIT License Copyright (c) 2021 Lutz Tomala"
 
 # Exclude Jupyter-notebooks
 # exclude_patterns: [*.ipynb]
